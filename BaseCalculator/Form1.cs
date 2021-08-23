@@ -12,20 +12,21 @@ namespace BaseCalculator
 {
     public partial class Form1 : Form
     {
+        // ReSharper disable once MemberInitializerValueIgnored
         private readonly Base[] _menu = {
-            new( "bin", "Binary",       new RadioButton{Name = "binRbtn", AutoSize = true}, (b) => new(b, 2)),
-            new( "oct", "Octal",        new RadioButton{Name = "octRbtn", AutoSize = true}, (o) =>  new(o, 8)),
-            new( "dec", "Decimal",      new RadioButton{Name = "decRbtn", AutoSize = true}, (d)=> new(d, 10)),
-            new( "hex", "Hexadecimal",  new RadioButton{Name = "hexRbtn", AutoSize = true}, (h) => new(h, 16)),
-            new( "ubin", "Unsigned Binary",       new RadioButton{Name = "ubinRbtn", AutoSize = true }, (b) => new(b, 2  , true)),
-            new( "uoct", "Unsigned Octal",        new RadioButton{Name = "uoctRbtn", AutoSize = true }, (o) =>  new(o, 8 , true)),
-            new( "udec", "Unsigned Decimal",      new RadioButton{Name = "udecRbtn", AutoSize = true }, (d)=> new(d, 10  , true)),
-            new( "uhex", "Unsigned Hexadecimal",  new RadioButton{Name = "uhexRbtn", AutoSize = true }, (h) => new(h, 16 , true))
+            new( "bin", "Binary",       new RadioButton{Name = "binRbtn", AutoSize = true}, b => new(b, 2)),
+            new( "oct", "Octal",        new RadioButton{Name = "octRbtn", AutoSize = true}, o =>  new(o, 8)),
+            new( "dec", "Decimal",      new RadioButton{Name = "decRbtn", AutoSize = true}, d=> new(d, 10)),
+            new( "hex", "Hexadecimal",  new RadioButton{Name = "hexRbtn", AutoSize = true}, h => new(h, 16)),
+            new( "ebin", "Floating Binary",       new RadioButton{Name = "ebinRbtn", AutoSize = true }, b => new(b, 2  , true)),
+            new( "eoct", "Floating Octal",        new RadioButton{Name = "eoctRbtn", AutoSize = true }, o =>  new(o, 8 , true)),
+            new( "edec", "Floating Decimal",      new RadioButton{Name = "edecRbtn", AutoSize = true }, d=> new(d, 10  , true)),
+            new( "ehex", "Floating Hexadecimal",  new RadioButton{Name = "ehexRbtn", AutoSize = true }, h => new(h, 16 , true))
         };
 
         private readonly RadioButton[] _signs = {
-            new RadioButton{ Name = "signRbtn", Text = "Signed", Tag = false},
-            new RadioButton{ Name = "unsignRbtn", Text = "Unsigned", Tag = true}
+            new() { Name = "signRbtn", Text = @"Signed", Tag = false},
+            new() { Name = "unsignRbtn", Text = @"Unsigned", Tag = true}
         };
         public Form1()
         {
@@ -39,8 +40,7 @@ namespace BaseCalculator
         }
 
 
-
-        public void DoConversion()
+        private void DoConversion()
         {
             try
             {
